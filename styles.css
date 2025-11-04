@@ -237,6 +237,17 @@ nav a {
     border-radius: 2px;
   }
   
+  /* Active page indicator */
+  &:has([aria-current="page"]) {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--maroon-primary) 15%, transparent 85%) 0%,
+      color-mix(in srgb, var(--maroon-primary) 25%, transparent 75%) 100%
+    );
+    color: var(--maroon-primary);
+    border-color: var(--maroon-primary);
+  }
+  
   &:hover {
     background: linear-gradient(
       135deg,
@@ -315,6 +326,7 @@ main {
   width: min(90%, 100%);
   position: relative;
   z-index: 1;
+  animation: fadeIn 0.5s ease-out;
 }
 
 /* Sections with Grid */
@@ -337,20 +349,21 @@ section {
   position: relative;
   overflow: hidden;
   
-  /* Decorative maroon corner accent */
+  /* Decorative maroon corner accent - more subtle */
   &::before {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: radial-gradient(
       circle at top right,
-      color-mix(in srgb, var(--maroon-primary) 30%, transparent 70%) 0%,
+      color-mix(in srgb, var(--maroon-primary) 20%, transparent 80%) 0%,
       transparent 70%
     );
     pointer-events: none;
+    opacity: 0.6;
   }
 }
 
@@ -375,6 +388,13 @@ article {
     0 1px 2px rgba(167, 39, 3, 0.1);
   transition: all var(--transition-normal);
   position: relative;
+  
+  /* Ensure links are visually distinct */
+  & a {
+    display: inline-block;
+    margin-top: var(--spacing-xs);
+    font-weight: 600;
+  }
 }
 
 /* Footer with Flexbox */
@@ -382,9 +402,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-xl) var(--spacing-lg);
-  background-color: var(--bg-secondary);
-  border-top: 1px solid var(--cream-dark);
+  padding: var(--spacing-lg) var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    color-mix(in srgb, var(--bg-secondary) 98%, var(--maroon-primary) 2%) 100%
+  );
+  border-top: 2px solid color-mix(in srgb, var(--maroon-primary) 20%, var(--cream-dark) 80%);
   margin-top: auto;
 }
 
@@ -423,7 +447,7 @@ section {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: var(--maroon-primary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     letter-spacing: -0.02em;
     line-height: 1.2em;
     position: relative;
@@ -432,7 +456,7 @@ section {
       content: '';
       display: block;
       width: 4rem;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(
         90deg,
         var(--maroon-primary, var(--maroon-primary-fallback)),
@@ -441,7 +465,7 @@ section {
       );
       margin-top: var(--spacing-sm);
       border-radius: var(--radius-sm);
-      box-shadow: 0 2px 4px rgba(167, 39, 3, 0.3);
+      box-shadow: 0 2px 4px rgba(167, 39, 3, 0.2);
     }
   }
   
@@ -457,8 +481,9 @@ section {
   & p {
     font-size: 1rem;
     line-height: 1.8em;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     color: var(--text-secondary);
+    max-width: 75ch; /* Optimal reading width */
   }
   
   & ul,
@@ -467,10 +492,20 @@ section {
     margin-bottom: var(--spacing-md);
     
     & li {
-      margin-bottom: var(--spacing-xs);
+      margin-bottom: var(--spacing-sm);
       line-height: 1.9em;
       color: var(--text-secondary);
+      position: relative;
     }
+  }
+  
+  & ul li::marker {
+    color: var(--maroon-primary);
+  }
+  
+  & ol li::marker {
+    color: var(--maroon-primary);
+    font-weight: 600;
   }
 }
 
@@ -496,13 +531,15 @@ article {
   & a {
     color: var(--maroon-primary, var(--maroon-primary-fallback));
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: all var(--transition-fast);
     border-bottom: 1px solid transparent;
+    display: inline-block;
     
     &:hover {
       color: var(--maroon-dark);
       border-bottom-color: var(--maroon-dark);
+      transform: translateX(2px);
     }
   }
 }
@@ -510,33 +547,6 @@ article {
 /* ============================================
    CSS ANIMATIONS, TRANSITIONS & TRANSFORMS
    ============================================ */
-nav a {
-  transition: all var(--transition-fast);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--maroon-primary, var(--maroon-primary-fallback));
-    transition: all var(--transition-fast);
-    transform: translateX(-50%);
-  }
-  
-  &:hover {
-    color: var(--text-primary, var(--text-primary-fallback));
-    
-    &::before {
-      width: 80%;
-    }
-  }
-  
-  &:active {
-    transform: translateY(1px);
-  }
-}
 
 article {
   transform: translateY(0);
@@ -963,7 +973,7 @@ picture:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .quick-link-card {
@@ -991,11 +1001,13 @@ picture:hover {
       text-decoration: none;
       font-size: 1.25rem;
       font-weight: 600;
-      transition: color var(--transition-fast);
+      transition: all var(--transition-fast);
+      display: inline-block;
       
       &:hover {
         color: var(--maroon-dark);
         text-decoration: underline;
+        transform: translateX(4px);
       }
     }
   }
@@ -1120,10 +1132,23 @@ progress {
    ============================================ */
 a {
   color: var(--maroon-primary, var(--maroon-primary-fallback));
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  text-decoration: none;
   
   &:hover {
     color: var(--maroon-dark);
+    text-decoration: underline;
+  }
+  
+  /* Links in sections */
+  section & {
+    font-weight: 500;
+  }
+  
+  /* Strong emphasis for important links */
+  strong &,
+  & strong {
+    font-weight: 600;
   }
 }
 
