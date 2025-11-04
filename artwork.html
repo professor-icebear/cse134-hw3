@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My artwork portfolio">
-    <title>Artwork - My Portfolio</title>
+    <meta name="description" content="Artwork portfolio by Mohammad Abdullah">
+    <title>Artwork - Mohammad Abdullah</title>
     <link rel="icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,16 +30,53 @@
             <article>
                 <h3>Abstract Collection</h3>
                 <picture>
-                    <source srcset="assets/images/artwork-1.webp" type="image/webp">
+                    <source 
+                        media="(min-width: 1024px)"
+                        srcset="assets/images/artwork-1.webp 800w, assets/images/artwork-1.jpg 800w"
+                        type="image/webp">
+                    <source 
+                        media="(min-width: 768px)"
+                        srcset="assets/images/artwork-1.webp 600w, assets/images/artwork-1.jpg 600w"
+                        type="image/webp">
+                    <source 
+                        media="(max-width: 767px)"
+                        srcset="assets/images/artwork-1.webp 400w, assets/images/artwork-1.jpg 400w"
+                        type="image/webp">
                     <source srcset="assets/images/artwork-1.jpg" type="image/jpeg">
-                    <img src="assets/images/artwork-1.jpg" alt="Abstract artwork featuring geometric patterns" width="400" height="300">
+                    <img 
+                        src="assets/images/artwork-1.jpg" 
+                        alt="Abstract artwork featuring geometric patterns in maroon and cream tones, exploring the relationship between geometry and color theory"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        class="artwork-image">
                 </picture>
                 <p>This piece explores the relationship between geometry and color theory.</p>
             </article>
 
             <article>
                 <h3>Modern Illustrations</h3>
-                <img src="assets/images/artwork-2.png" alt="Modern illustration with vibrant colors" width="400" height="300">
+                <picture>
+                    <source 
+                        media="(min-width: 1024px)"
+                        srcset="assets/images/artwork-2.png 800w"
+                        type="image/png">
+                    <source 
+                        media="(min-width: 768px)"
+                        srcset="assets/images/artwork-2.png 600w"
+                        type="image/png">
+                    <source 
+                        media="(max-width: 767px)"
+                        srcset="assets/images/artwork-2.png 400w"
+                        type="image/png">
+                    <img 
+                        src="assets/images/artwork-2.png" 
+                        alt="Modern illustration with vibrant colors showcasing contemporary design trends and creative expression"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        class="artwork-image">
+                </picture>
                 <p>A series of illustrations inspired by contemporary design trends.</p>
             </article>
         </section>
@@ -56,7 +93,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved. Made with &hearts; in San Diego.</p>
+        <p>&copy; 2025 Mohammad Abdullah. All rights reserved. Made with &hearts; in San Diego & London.</p>
     </footer>
 </body>
 </html>

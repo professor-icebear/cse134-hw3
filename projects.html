@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My project portfolio">
-    <title>Projects - My Portfolio</title>
+    <meta name="description" content="Mohammad Abdullah's software engineering projects - Maverick, Factify.AI, and more">
+    <title>Projects - Mohammad Abdullah</title>
     <link rel="icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>My Projects</h1>
+        <h1>Projects</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -28,37 +28,67 @@
             <h2>Featured Projects</h2>
             
             <article>
-                <h3>MAV - Mobile App Visualizer</h3>
-                <p>A cutting-edge tool for visualizing mobile application data flows.</p>
-                <a href="projects/mav.html">Learn More</a>
+                <h3>Maverick</h3>
+                <picture>
+                    <source 
+                        media="(min-width: 1024px)"
+                        srcset="assets/images/artwork-1.webp 600w, assets/images/artwork-1.jpg 600w"
+                        type="image/webp">
+                    <source 
+                        media="(max-width: 1023px)"
+                        srcset="assets/images/artwork-1.webp 400w, assets/images/artwork-1.jpg 400w"
+                        type="image/webp">
+                    <source srcset="assets/images/artwork-1.jpg" type="image/jpeg">
+                    <img 
+                        src="assets/images/artwork-1.jpg" 
+                        alt="Maverick poker analysis engine visualization showing Monte Carlo simulations and hand evaluation"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        class="project-image">
+                </picture>
+                <p>A performance-optimized poker analysis engine and CLI tool integrating Monte Carlo simulations, vectorization, and AI-driven opponent modeling.</p>
+                <p><strong>Tech Stack:</strong> Python, NumPy, Pandas, Treys, Pytest</p>
+                <a href="projects/maverick.html">Learn More</a>
             </article>
 
             <article>
-                <h3>Factify</h3>
-                <p>An AI-powered fact-checking application that helps verify information.</p>
+                <h3>Factify.AI</h3>
+                <picture>
+                    <source 
+                        media="(min-width: 1024px)"
+                        srcset="assets/images/artwork-2.png 600w"
+                        type="image/png">
+                    <source 
+                        media="(max-width: 1023px)"
+                        srcset="assets/images/artwork-2.png 400w"
+                        type="image/png">
+                    <img 
+                        src="assets/images/artwork-2.png" 
+                        alt="Factify.AI fact-checking application interface demonstrating real-time information verification with reliability scores"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        class="project-image">
+                </picture>
+                <p>An AI-powered real-time fact checker that verifies image, text, or URL inputs and generates detailed reports with reliability scores and counter sources.</p>
+                <p><strong>Tech Stack:</strong> TypeScript, Next.js, Cherio, Axios, Chrome Extension Tools, Tailwind</p>
                 <a href="projects/factify.html">Learn More</a>
-            </article>
-
-            <article>
-                <h3>Tutor Platform</h3>
-                <p>An online tutoring platform connecting students with educators.</p>
-                <a href="projects/tutor.html">Learn More</a>
             </article>
         </section>
 
         <section>
-            <h2>Project Categories</h2>
-            <ol>
-                <li>Web Development</li>
-                <li>Mobile Applications</li>
-                <li>AI & Machine Learning</li>
-                <li>Data Visualization</li>
-            </ol>
+            <h2>Skills & Technologies</h2>
+            <ul>
+                <li><strong>Programming Languages:</strong> Python, Java, HTML, CSS, JavaScript, SQL, Swift, Assembly, C++, Scala</li>
+                <li><strong>Frameworks & Tools:</strong> JavaFX, Material UI, Next.js, Django, Firebase, Supabase, NumPy, Pandas</li>
+                <li><strong>Infrastructure:</strong> GitHub Actions, Docker, Firebase, Google Cloud, AWS</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved. Made with &hearts; in San Diego.</p>
+        <p>&copy; 2025 Mohammad Abdullah. All rights reserved. Made with &hearts; in San Diego & London.</p>
     </footer>
 </body>
 </html>

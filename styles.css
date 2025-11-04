@@ -1,14 +1,3 @@
-/* ============================================
-   PORTFOLIO - STANDARDS BASED CSS
-   Part 1: Standards Based CSS Implementation
-   Sleek & Aesthetic Design
-   ============================================ */
-
-/* ============================================
-   CSS VARIABLES (with fallbacks)
-   Used in multiple styling contexts
-   Maroon & Cream Color Scheme
-   ============================================ */
 :root {
   /* Primary Maroon Colors */
   --maroon-primary: #A72703; /* Deep Maroon */
@@ -809,6 +798,7 @@ profile-card {
 
 /* ============================================
    IMAGE STYLING
+   Using object-fit and object-position for proper framing
    ============================================ */
 img,
 picture {
@@ -818,6 +808,7 @@ picture {
   border: 1px solid var(--cream-dark);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-md);
+  display: block;
 }
 
 img:hover,
@@ -825,6 +816,175 @@ picture:hover {
   transform: scale(1.02);
   box-shadow: var(--shadow-lg);
   border-color: color-mix(in srgb, var(--maroon-primary, var(--maroon-primary-fallback)) 30%, var(--cream-dark) 70%);
+}
+
+/* Artwork images with object-fit and object-position */
+.artwork-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 4 / 3;
+}
+
+/* Project images - optimized for project cards */
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Project detail images - larger display */
+.project-detail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 4 / 3;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Research images - smaller, more focused */
+.research-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 4 / 3;
+  margin-bottom: var(--spacing-md);
+  max-width: 500px;
+}
+
+/* Hero image styling */
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Hero content layout */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+/* Quick Links Section */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.quick-link-card {
+  padding: var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--cream-warm) 0%,
+    color-mix(in srgb, var(--cream-warm) 96%, var(--maroon-primary) 4%) 100%
+  );
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--maroon-primary);
+  border-top: 1px solid color-mix(in srgb, var(--maroon-primary) 20%, var(--cream-dark) 80%);
+  border-right: 1px solid color-mix(in srgb, var(--maroon-primary) 15%, var(--cream-dark) 85%);
+  border-bottom: 1px solid var(--cream-dark);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(167, 39, 3, 0.1);
+  transition: all var(--transition-normal);
+  
+  & h3 {
+    margin-bottom: var(--spacing-sm);
+    
+    & a {
+      color: var(--maroon-primary);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 600;
+      transition: color var(--transition-fast);
+      
+      &:hover {
+        color: var(--maroon-dark);
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  & p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7em;
+    font-size: 0.9375rem;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 8px 12px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(167, 39, 3, 0.15);
+    border-left-color: var(--maroon-light);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--cream-warm) 94%, var(--maroon-primary) 6%) 0%,
+      color-mix(in srgb, var(--cream-warm) 96%, var(--maroon-primary) 4%) 100%
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .hero-image {
+    object-position: center top;
+  }
+  
+  .project-image,
+  .project-detail-image,
+  .research-image {
+    object-position: center;
+  }
+  
+  .quick-links {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Image frame adjustments for different contexts */
+article img {
+  object-fit: cover;
+  object-position: center;
+}
+
+section:has(.project-image) img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Decorative image frames */
+.artwork-image,
+.project-image,
+.project-detail-image {
+  border: 2px solid color-mix(in srgb, var(--maroon-primary) 20%, var(--cream-dark) 80%);
+}
+
+.artwork-image:hover,
+.project-image:hover,
+.project-detail-image:hover {
+  border-color: color-mix(in srgb, var(--maroon-primary) 50%, var(--cream-dark) 50%);
+  object-position: center center;
 }
 
 /* Video styling */

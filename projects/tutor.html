@@ -25,6 +25,28 @@
     <main>
         <section>
             <h2>Platform Overview</h2>
+            <picture>
+                <source 
+                    media="(min-width: 1024px)"
+                    srcset="../assets/images/artwork-1.webp 800w, ../assets/images/artwork-1.jpg 800w"
+                    type="image/webp">
+                <source 
+                    media="(min-width: 768px)"
+                    srcset="../assets/images/artwork-1.webp 600w, ../assets/images/artwork-1.jpg 600w"
+                    type="image/webp">
+                <source 
+                    media="(max-width: 767px)"
+                    srcset="../assets/images/artwork-1.webp 400w, ../assets/images/artwork-1.jpg 400w"
+                    type="image/webp">
+                <source srcset="../assets/images/artwork-1.jpg" type="image/jpeg">
+                <img 
+                    src="../assets/images/artwork-1.jpg" 
+                    alt="Online tutoring platform interface displaying live video sessions, interactive whiteboard, and student progress tracking dashboard"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    class="project-detail-image">
+            </picture>
             <p>An innovative online tutoring platform that connects students with qualified educators worldwide.</p>
         </section>
 

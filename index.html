@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio showcasing my projects, artwork, and research">
-    <meta name="author" content="Your Name">
-    <title>Home - My Portfolio</title>
+    <meta name="description" content="Mohammad Abdullah - Computer Science Student at King's College London and UC San Diego | Research Engineer at Stanford Snyder Lab">
+    <meta name="author" content="Mohammad Abdullah">
+    <title>Mohammad Abdullah - Portfolio</title>
     <link rel="icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Mohammad Abdullah</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -27,30 +27,69 @@
     <main>
         <section class="hero-section">
             <h2>About Me</h2>
-            <p>Hi! I'm a passionate developer, artist, and researcher. This portfolio showcases my work across <strong>multiple disciplines</strong> and demonstrates my <em>commitment to excellence</em>.</p>
-            <p>Feel free to explore my <b>projects</b>, view my <i>artwork</i>, and learn about my research.</p>
+            <div class="hero-content">
+                <picture class="hero-image">
+                    <source 
+                        media="(min-width: 1024px)"
+                        srcset="assets/images/artwork-1.webp 800w, assets/images/artwork-1.jpg 800w"
+                        type="image/webp">
+                    <source 
+                        media="(min-width: 768px)"
+                        srcset="assets/images/artwork-1.webp 600w, assets/images/artwork-1.jpg 600w"
+                        type="image/webp">
+                    <source 
+                        media="(max-width: 767px)"
+                        srcset="assets/images/artwork-1.webp 400w, assets/images/artwork-1.jpg 400w"
+                        type="image/webp">
+                    <source srcset="assets/images/artwork-1.jpg" type="image/jpeg">
+                    <img 
+                        src="assets/images/artwork-1.jpg" 
+                        alt="Portfolio showcase featuring creative work in development, art, and research"
+                        width="800"
+                        height="600"
+                        loading="eager"
+                        class="hero-image">
+                </picture>
+                <div class="hero-text">
+                    <p>Hi! I'm <strong>Mohammad Abdullah</strong>, a Computer Science student pursuing dual degrees at <strong>King's College London</strong> (1:1 Honours) and <strong>UC San Diego</strong> (GPA: 3.8/4.0). I'm currently working as a Research Engineer at the <strong>Stanford Snyder Lab</strong>, where I'm developing infrastructure and research support tools.</p>
+                    <p>I have experience in software engineering at <strong>Google</strong> and <strong>CarbonTag</strong>, and I'm passionate about building scalable systems, AI/ML applications, and contributing to research that makes a difference.</p>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h3>Quick Links</h3>
-            <div>
-                <span>Check out my latest work:</span>
-                <ul>
-                    <li><a href="projects.html">View Projects</a></li>
-                    <li><a href="artwork.html">Browse Artwork</a></li>
-                    <li><a href="assets/pdf/cvUK.pdf">Download Resume (PDF)</a></li>
-                </ul>
+            <h2>Quick Links</h2>
+            <div class="quick-links">
+                <article class="quick-link-card">
+                    <h3><a href="projects.html">Projects</a></h3>
+                    <p>Explore my software engineering projects including <strong>Maverick</strong> (poker analysis engine), <strong>Factify.AI</strong> (AI fact-checker), and more.</p>
+                </article>
+                
+                <article class="quick-link-card">
+                    <h3><a href="research.html">Research</a></h3>
+                    <p>Learn about my current work as a Research Engineer at <strong>Stanford Snyder Lab</strong>, developing infrastructure and research support tools.</p>
+                </article>
+                
+                <article class="quick-link-card">
+                    <h3><a href="contact.html">Contact</a></h3>
+                    <p>Get in touch via email, LinkedIn, or GitHub. I'm always open to discussing new opportunities and collaborations.</p>
+                </article>
+                
+                <article class="quick-link-card">
+                    <h3><a href="assets/pdf/cvUK.pdf">Resume</a></h3>
+                    <p>Download my complete resume (PDF) with detailed information about my education, experience, and projects.</p>
+                </article>
             </div>
         </section>
 
         <article>
-            <h3>Latest Update</h3>
-            <p>I recently completed a major project called <strong>MAV</strong>. You can learn more about it on my <a href="projects.html">projects page</a>.</p>
+            <h3>Current Focus</h3>
+            <p>Currently working as a <strong>Research Engineer at Stanford Snyder Lab</strong>, where I'm designing CI/CD pipelines, developing LLM-powered research tools, and leading infrastructure migration from GCP to AWS. Check out my <a href="research.html">research page</a> for more details.</p>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved. Made with &hearts; in San Diego.</p>
+        <p>&copy; 2025 Mohammad Abdullah. All rights reserved. Made with &hearts; in San Diego & London.</p>
     </footer>
 
     <noscript>
